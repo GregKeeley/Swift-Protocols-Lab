@@ -155,7 +155,29 @@ protocol Flyable {
 ```
 
 </br> </br>
+Answer
+```swift
+protocol Bird {
+    var name: String { get }
+    var canFly: Bool { get }
+}
 
+protocol Flyable {
+    var airspeedVelocity: Double { get }
+}
+
+struct Penguin: Bird, Flyable {
+    var name = "Penguin"
+    var canFly = false
+    var airspeedVelocity = 0.0
+}
+
+struct Eagle: Bird, Flyable {
+    var name = "Eagle"
+    var canFly = true
+    var airspeedVelocity = 30.0
+}
+```
 ## Question 4
 
 a. Create a protocol called `Transformation`.  The protocol should specify a mutating method called transform
@@ -179,7 +201,31 @@ bruceBanner.transform()  // notHulk
 ```
 
 </br> </br>
+Answer (incomplete)
+```swift 
+protocol Transformation {
+    mutating func transform()
+}
 
+enum SuperHero: Transformation, Comparable {
+    static func < (lhs: SuperHero, rhs: SuperHero) -> Bool {
+//        return lhs.hulk == rhs.hulk && lhs.hulk == rhs.hulk
+    }
+    
+    case hulk
+    case notHulk
+    func transform() {
+}
+}
+        if SuperHero.self != SuperHero.hulk {
+            print("I am not the Hulk")
+        } else {
+            print("Ok, I am upset enough to be the Hulk")
+        }
+
+var bruceBanner = SuperHero.notHulk
+bruceBanner.transform()
+```
 
 ## Question 5
 
@@ -197,6 +243,34 @@ f. Put an instance of each of your classes in an array.
 
 g. Iterate over the array and have them print their `message` property
 
+</br> </br>
+Answer (incomplete)
+```swift
+protocol Communication {
+    var message: String { get }
+    
+}
+
+class Cow: Communication {
+    var message: String = "Moo"
+    
+}
+class Dog: Communication {
+    var message: String = "Bark"
+    
+}
+class Cat: Communication {
+    var message: String = "Meow"
+    
+}
+
+var cat1 = Cat()
+var dog1 = Dog()
+var cow1 = Cow()
+
+var animalArray: Any = [cat1, dog1, cow1]
+
+```
 
 ## Question 6
 

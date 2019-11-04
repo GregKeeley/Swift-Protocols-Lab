@@ -80,3 +80,80 @@ struct Bicycle: Vehicle {
 var myBike = Bicycle()
 print("myBike happens to have exactly \(myBike.numberOfWheels)")
 myBike.drive()
+
+//==============================================================
+
+protocol Bird {
+    var name: String { get }
+    var canFly: Bool { get }
+}
+
+protocol Flyable {
+    var airspeedVelocity: Double { get }
+}
+
+struct Penguin: Bird, Flyable {
+    var name = "Penguin"
+    var canFly = false
+    var airspeedVelocity = 0.0
+}
+
+struct Eagle: Bird, Flyable {
+    var name = "Eagle"
+    var canFly = true
+    var airspeedVelocity = 30.0
+}
+
+
+//==============================================================
+
+//protocol Transformation {
+//    mutating func transform()
+//}
+//
+//enum SuperHero: Transformation, Comparable {
+//    static func < (lhs: SuperHero, rhs: SuperHero) -> Bool {
+////        return lhs.hulk == rhs.hulk && lhs.hulk == rhs.hulk
+//    }
+//
+//    case hulk
+//    case notHulk
+//    func transform() {
+//}
+//}
+//        if SuperHero.self != SuperHero.hulk {
+//            print("I am not the Hulk")
+//        } else {
+//            print("Ok, I am upset enough to be the Hulk")
+//        }
+//
+//var bruceBanner = SuperHero.notHulk
+//bruceBanner.transform()
+
+//==============================================================
+
+protocol Communication {
+    var message: String { get }
+    
+}
+
+class Cow: Communication {
+    var message: String = "Moo"
+    
+}
+class Dog: Communication {
+    var message: String = "Bark"
+    
+}
+class Cat: Communication {
+    var message: String = "Meow"
+    
+}
+
+var cat1 = Cat()
+var dog1 = Dog()
+var cow1 = Cow()
+
+var animalArray: Any = [cat1, dog1, cow1]
+
+
